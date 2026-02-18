@@ -1,10 +1,11 @@
+import './global.css';
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='uk'>
+    <html lang="uk">
       <body>{children}</body>
     </html>
   );
