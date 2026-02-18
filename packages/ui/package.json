@@ -8,6 +8,8 @@
   "scripts": {
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component",
+    "format:check": "prettier --check --ignore-path ../../.prettierignore \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write --ignore-path ../../.prettierignore \"**/*.{ts,tsx,md}\"",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {

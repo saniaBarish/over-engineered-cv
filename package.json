@@ -10,7 +10,10 @@
     "docs": "turbo dev --filter=docs",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "format:check": "turbo run format:check",
+    "check-types": "turbo run check-types",
+    "clear": "pnpm -r exec rm -rf node_modules .next .turbo dist && rm -rf node_modules .turbo",
+    "ci": "turbo run check-types format:check lint"
   },
   "devDependencies": {
     "prettier": "^3.7.4",
