@@ -10,20 +10,26 @@
     "generate:component": "turbo gen react-component",
     "format:check": "prettier --check --ignore-path ../../.prettierignore \"**/*.{ts,tsx,md}\"",
     "format": "prettier --write --ignore-path ../../.prettierignore \"**/*.{ts,tsx,md}\"",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
+    "@repo/testing-config": "workspace:^",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.24",
     "eslint": "^9.39.1",
+    "jsdom": "^26.1.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.18",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "react": "^19.2.0",

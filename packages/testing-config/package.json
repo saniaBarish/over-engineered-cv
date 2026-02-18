@@ -1,0 +1,21 @@
+{
+  "name": "@repo/testing-config",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./vitest.setup": "./dist/vitest.setup.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^26.1.0",
+    "typescript": "5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
