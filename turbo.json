@@ -13,6 +13,10 @@
     "check-types": {
       "dependsOn": ["^check-types"]
     },
+    "format:check": {
+      "cache": true,
+      "inputs": ["**/*.{ts,tsx,md}", ".prettierignore"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
