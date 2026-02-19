@@ -1,1 +1,1 @@
-export const log = () => console.log('UI package loaded');
+export * from './components';

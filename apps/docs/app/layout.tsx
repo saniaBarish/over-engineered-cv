@@ -1,4 +1,5 @@
-import './global.css';
+import '@repo/tailwind-config';
+
 export default function RootLayout({
   children,
 }: Readonly<{
