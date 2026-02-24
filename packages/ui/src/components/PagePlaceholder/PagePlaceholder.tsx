@@ -12,8 +12,8 @@ export function PagePlaceholder({
   imgSrc,
 }: PagePlaceholderProps) {
   return (
-    <div className="border-border bg-card/20 relative flex h-[100svh] min-h-[70vh] w-full items-center justify-center overflow-hidden rounded-3xl border backdrop-blur-md">
-      <div className="bg-primary/20 absolute top-1/2 left-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]" />
+    <div className="border-border bg-card relative flex h-[100%] w-full items-center justify-center overflow-hidden rounded-3xl border backdrop-blur-md">
+      <div className="bg-primary absolute top-1/2 left-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]" />
       <div className="relative z-10 flex flex-col items-center gap-8 px-6 text-center">
         {imgSrc && (
           <div className="relative h-64 w-64 transition-transform duration-700 hover:scale-110 sm:h-96 sm:w-96">
