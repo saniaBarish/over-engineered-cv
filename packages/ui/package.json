@@ -15,10 +15,10 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/tailwind-config": "workspace:*",
+    "@repo/eslint-config": "workspace:^",
+    "@repo/tailwind-config": "workspace:^",
     "@repo/testing-config": "workspace:^",
-    "@repo/typescript-config": "workspace:*",
+    "@repo/typescript-config": "workspace:^",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
@@ -35,5 +35,13 @@
     "next": "16.1.5",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
+  },
+  "dependencies": {
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.575.0",
+    "tailwind-merge": "^3.5.0"
   }
 }
