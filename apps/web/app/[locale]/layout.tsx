@@ -17,12 +17,12 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body>
+      <body className="min-h-screen">
         <NextIntlClientProvider messages={messages}>
-          <main>
+          <div className="grid min-h-screen grid-rows-[auto_1fr]">
             <Header />
-            {children}
-          </main>
+            <main className="relative">{children}</main>
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

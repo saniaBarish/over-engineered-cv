@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { LocaleSwitcherDropdown } from '@components/LocaleSwitcherDropdown';
+import { TFunction } from '@i18n/types';
+import { getTranslations } from 'next-intl/server';
 // import { MobileMenu } from './MobileMenu';
 
 type NavItem = {
@@ -9,28 +11,28 @@ type NavItem = {
   label: string;
 };
 
-const NAV: NavItem[] = [
-  { key: 'about', href: '/#about', label: 'About' },
-  { key: 'projects', href: '/#projects', label: 'Projects' },
-  { key: 'skills', href: '/#skills', label: 'Skills' },
-  { key: 'notes', href: '/#notes', label: 'Notes' },
-  { key: 'dashboard', href: '/dashboard', label: 'Dashboard' },
+// TODO: oba add locales
+const getNavigation = (t: TFunction): NavItem[] => [
+  { key: 'about', href: '/#about', label: t('ABOUT') },
+  { key: 'projects', href: '/#projects', label: t('PROJECTS') },
+  { key: 'skills', href: '/#skills', label: t('SKILLS') },
+  { key: 'notes', href: '/#notes', label: t('NOTES') },
+  { key: 'dashboard', href: '/dashboard', label: t('DASHBOARD') },
 ];
 
-export function Header() {
+export async function Header() {
+  const t = await getTranslations('NavPanel');
+  const navigation = getNavigation(t);
   return (
-    <header className="w-full">
-      {/* blurred backdrop */}
+    <header className="sticky top-0 z-50">
       <div className="border-border/60 bg-background/60 supports-[backdrop-filter]:bg-background/40 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-          {/* Brand */}
+        <div className="max-w-8xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-3">
             <Link
               href="/"
               className="group flex items-center gap-3 rounded-2xl px-2 py-1"
             >
               <div className="border-border/70 bg-card/50 relative h-9 w-9 overflow-hidden rounded-2xl border">
-                {/* placeholder logo */}
                 <Image
                   src="/my-avatar.png"
                   alt="OB"
@@ -52,9 +54,8 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Desktop nav */}
           <nav className="hidden items-center gap-1 md:flex">
-            {NAV.map((item) => (
+            {navigation.map((item) => (
               <Link
                 key={item.key}
                 href={item.href}
@@ -65,7 +66,6 @@ export function Header() {
             ))}
           </nav>
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
             <LocaleSwitcherDropdown />
 
@@ -87,7 +87,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* thin separator */}
         <div className="border-border/60 h-px w-full border-t" />
       </div>
     </header>

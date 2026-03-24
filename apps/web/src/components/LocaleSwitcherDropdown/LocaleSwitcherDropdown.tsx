@@ -1,31 +1,25 @@
 'use client';
 
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useParams } from 'next/navigation';
-
-type Locale = 'uk' | 'en';
-
-const LOCALES: Array<{ value: Locale; label: string; flag: string }> = [
-  { value: 'uk', label: 'Українська', flag: '🇺🇦' },
-  { value: 'en', label: 'English', flag: '🇬🇧' },
-];
+import { LOCALES } from '@i18n/constants';
+import { ExistedLocale } from '@i18n/types';
 
 export function LocaleSwitcherDropdown() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const { locale } = useParams();
 
   const current = LOCALES.find((l) => l.value === locale) ?? LOCALES[0];
 
-  function setLocale(next: Locale) {
+  function setLocale(next: ExistedLocale) {
     setOpen(false);
-    router.replace(pathname, { locale: next }); // зберігає поточний route
+    router.replace(pathname, { locale: next });
   }
 
-  // закрити по Escape
-  React.useEffect(() => {
+  useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape') setOpen(false);
     }
@@ -49,7 +43,6 @@ export function LocaleSwitcherDropdown() {
 
       {open && (
         <>
-          {/* overlay для кліку поза меню */}
           <button
             aria-label="Close language menu"
             className="fixed inset-0 z-40 cursor-default"
